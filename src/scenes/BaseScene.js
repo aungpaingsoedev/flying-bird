@@ -11,7 +11,13 @@ class BaseScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "sky").setOrigin(0);
+    // Add full screen background image
+    const bg = this.add.image(0, 0, "sky").setOrigin(0);
+    // Scale background to fill the entire screen
+    const scaleX = this.config.width / bg.width;
+    const scaleY = this.config.height / bg.height;
+    const scale = Math.max(scaleX, scaleY);
+    bg.setScale(scale);
 
     if (this.config.canGoBack) {
       const backButton = this.add

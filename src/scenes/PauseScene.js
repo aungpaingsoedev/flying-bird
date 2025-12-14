@@ -20,7 +20,7 @@ class PauseScene extends BaseScene {
   }
 
   create() {
-    this.add.image(0, 0, "sky").setOrigin(0);
+    super.create();
     this.createMenu(this.menu, this.setupMenuEvents.bind(this));
   }
 

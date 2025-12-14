@@ -62,7 +62,12 @@ class PlayScene extends BaseScene {
   }
 
   createBG() {
-    this.add.image(0, 0, "sky").setOrigin(0, 0);
+    const bg = this.add.image(0, 0, "sky").setOrigin(0, 0);
+    // Scale background to fill the entire screen
+    const scaleX = this.config.width / bg.width;
+    const scaleY = this.config.height / bg.height;
+    const scale = Math.max(scaleX, scaleY);
+    bg.setScale(scale);
   }
 
   createBird() {
